@@ -17,7 +17,9 @@ app.use(bodyParser.json());
 
 var routes = require('./api/routes/todoListRoutes'); //importing route
 var routesProdutos = require('./api/routes/produtoRoutes'); //importing route
+var loginRoute = require('./api/routes/userRoutes'); //importing route
 routesProdutos(app);
+loginRoute(app);
 routes(app);
 
 app.use(function(req, res) {
