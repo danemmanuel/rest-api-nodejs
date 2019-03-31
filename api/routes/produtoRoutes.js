@@ -5,12 +5,12 @@ module.exports = function(app) {
   // todoList Routes
   app
     .route('/produtos')
-    .get(valida, produto.list_all_tasks)
-    .post(produto.create_a_task);
+    .get(valida, produto.findAll)
+    .post(produto.create);
 
   app
     .route('/produtos/:taskId')
-    .get(produto.read_a_task)
-    .put(produto.update_a_task)
-    .delete(produto.delete_a_task);
+    .get(produto.findById)
+    .put(produto.updateById)
+    .delete(produto.deleteById);
 };

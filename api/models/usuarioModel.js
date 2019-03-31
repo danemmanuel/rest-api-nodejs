@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-//1
+
 var UsuarioSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -14,7 +14,7 @@ var UsuarioSchema = new mongoose.Schema({
     required: true
   }
 });
-//2
+
 UsuarioSchema.pre('save', function(next) {
   var user = this;
   if (!user.isModified('password')) return next();
@@ -27,7 +27,7 @@ UsuarioSchema.pre('save', function(next) {
     });
   });
 });
-//3
+
 UsuarioSchema.methods.verificaSenha = function(password, next) {
   bcrypt.compare(password, this.password, function(err, isMatch) {
     if (err) return next(err);
