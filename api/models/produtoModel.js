@@ -13,6 +13,10 @@ var ProdutoSchema = new Schema({
   },
   preco: {
     type: Number
+  },
+  ativo: {
+    type: Boolean,
+    default: true
   }
 });
 
