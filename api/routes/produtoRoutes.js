@@ -2,7 +2,7 @@
 module.exports = function(app) {
   var produto = require('../controllers/produtoController');
   var valida = require('../../validarJWT');
-  // todoList Routes
+
   app
     .route('/produtos')
     .get(valida, produto.findAll)

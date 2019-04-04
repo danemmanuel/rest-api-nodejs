@@ -15,3 +15,20 @@ exports.create = (req, res) => {
     });
   });
 };
+
+exports.findAll = (req, res) => {
+  Usuario.find({}, (err, user) => {
+    if (err) res.send(err);
+    res.json(user);
+  });
+};
+
+exports.findByName = (req, res) => {
+  Usuario.find({ username: req.query.nome }, (err, users) => {
+    if (users.length === 0) {
+      return res.json({ message: 'Nenhum usuario encontrado' });
+    }
+    if (err) return res.send(err);
+    return res.json(users);
+  });
+};

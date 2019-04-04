@@ -5,4 +5,6 @@ module.exports = function(app) {
 
   app.route('/login').post(controllerLogin);
   app.route('/cadastro').post(usuarioController.create);
+  app.route('/listar').get(usuarioController.findAll);
+  app.route('/usuario').get(usuarioController.findByName);
 };
